@@ -7,19 +7,3 @@
   }
   exports.Note = Note;
 })(this)
-
-
-//  (function (exports) {
-//
-//     function doSomethingPrivate(var) {
-//     }
-//
-//     function Note(text) {
-//     }
-//
-//     Note.prototype.doSomething = function() {
-//         doSomethingPrivate(this.someVariable)
-//     }
-//
-//     exports.Note = Note;
-// })(this)

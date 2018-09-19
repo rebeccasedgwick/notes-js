@@ -1,20 +1,20 @@
 
 var assert = {
-  isTruthy: function (assertionToCheck) {
+  isTruthy: function (assertionToCheck, testName) {
     if (!assertionToCheck) {
-      this.log.push(Error("Assertion failed: " + assertionToCheck + " is not truthy"))
-    } else this.log.push(`Pass: ${assertionToCheck} is truthy`)
+      this.log.push(Error(testName + "Assertion failed: " + assertionToCheck + " is not truthy"))
+    } else this.log.push(`${testName}: Pass: ${assertionToCheck} is truthy`)
   },
-  isEqual: function (assertionOne, assertionTwo) {
+  isEqual: function (assertionOne, assertionTwo, testName) {
     if (assertionOne !== assertionTwo) {
-      this.log.push(Error(`Assertion failed: ${assertionOne} and ${assertionTwo} do not match`))
-    } else this.log.push(`Pass: ${assertionOne} === ${assertionTwo}`)
+      this.log.push(Error(`${testName}: Assertion failed: ${assertionOne} and ${assertionTwo} do not match`))
+    } else this.log.push(`${testName}: Pass: ${assertionOne} === ${assertionTwo}`)
 
   },
-  isIncluded: function (assertionOne, assertionTwo) {
+  isIncluded: function (assertionOne, assertionTwo, testName) {
     if (!assertionOne.includes(assertionTwo)) {
-      this.log.push(Error(`Assertion failed: ${assertionOne} does not include ${assertionTwo}`))
-    } else this.log.push(`Pass: ${assertionOne} includes ${assertionTwo}`)
+      this.log.push(Error(`${testName}: Assertion failed: ${assertionOne} does not include ${assertionTwo}`))
+    } else this.log.push(`${testName}: Pass: ${assertionOne} includes ${assertionTwo}`)
   },
   log: [],
   showLog: function () {

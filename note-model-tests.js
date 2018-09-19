@@ -1,11 +1,26 @@
-function allTests() {
+function noteTests() {
+  
+  note = new Note('My favourite language is JavaScript');
 
- function noteTest() {
-    let note = new Note('My favourite language is JavaScript');
-    assert.isEqual(note.getText(), 'My favourite language is JavaScript');
-}
-noteTest();
+  (function(testName) {
+    assert.isEqual(note.getText(), 'My favourite language is JavaScript', testName);
+  })('note test');
 
-assert.showLog()
+};
 
-}
+function listTests() {
+
+  note = new Note('My favourite language is JavaScript');
+  list = new List();
+
+  (function(testName) {
+    list.store(note);
+    assert.isIncluded(list.all(), note, testName);
+  })('list test');
+
+};
+
+noteTests();
+listTests();
+
+assert.showLog();
