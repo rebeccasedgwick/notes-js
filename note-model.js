@@ -1,24 +1,11 @@
-function Note(textStr) {
-    // this.text = 'My favourite language is JavaScript';
-    let text = textStr;
-
-    function returnNoteText() {
-        return text
-    }
-
-    return {
-        text: returnNoteText
-    }
-}
-
- (function (exports) {
-     function Note(string) {
-        this.text = string;
-    }
-     Note.prototype.getText = function() {
-        return this.text
-    }
-     exports.Note = Note;
+(function (exports) {
+  function Note(string) {
+    this.text = string;
+  }
+  Note.prototype.getText = function() {
+    return this.text
+  }
+  exports.Note = Note;
 })(this)
 
 
