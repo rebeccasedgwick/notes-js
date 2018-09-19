@@ -12,6 +12,12 @@
     this.notes.push(note)
   }
 
+  List.prototype.create = function(text) {
+    note = new Note(text)
+    this.store(note)
+    return note
+  }
+
   exports.List = List;
 
 })(this)
