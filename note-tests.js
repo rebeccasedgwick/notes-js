@@ -1,16 +1,16 @@
 function noteTests() {
 
-  let note = new Note('My favourite language ain\'t JavaScript');
+  let note = new Note('My favourite language is JavaScript');
 
   (function(testName) {
-    assert.isEqual(note.getText(), 'My favourite language ain\'t JavaScript', testName);
+    assert.isEqual(note.getText(), 'My favourite language is JavaScript', testName);
   })('note test');
 
 };
 
 function listTests() {
 
-  let note = new Note('My favourite language ain\'t JavaScript');
+  let note = new Note('My favourite language is JavaScript');
   let list = new List();
 
   (function(testName) {
