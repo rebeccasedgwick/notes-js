@@ -16,5 +16,18 @@
   <script src="list-view.js"></script>
   <script src="note-controller.js"></script>
 
+  <script type="text/javascript">
+    var noteList = new List()
+    var note1 = new Note('abc')
+    var note2 = new Note('def')
+    var note3 = new Note('xyz')
+
+    noteList.store(note1)
+    noteList.store(note2)
+    noteList.store(note3)
+
+    var noteController = new NoteController(noteList)
+    noteController.createView()
+  </script>
 </body>
 </html>
