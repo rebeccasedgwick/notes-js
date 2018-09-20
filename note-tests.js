@@ -39,8 +39,37 @@ function viewTests() {
 
 };
 
+function controllerTests() {
+
+  function ListViewDouble() {};
+  ListViewDouble.prototype = {
+    htmlList: function() {
+      return ['test']
+    }
+  }
+  var listViewDouble = new ListViewDouble();
+
+  function DocumentDouble() {};
+  DocumentDouble.prototype = {
+    innerHTML: function() {
+      return ['test']
+    }
+  }
+
+  var listViewDouble = new ListViewDouble();
+  var documentDouble = new DocumentDouble();
+
+  let controller = new NoteController(ListViewDouble);
+
+  (function(testName) {
+    assert.isEqual(controller.createView(listViewDouble, documentDouble))
+  })('note controller creates view');
+
+}
+
 noteTests();
 listTests();
 viewTests();
+controllerTests();
 
 assert.showLog();
