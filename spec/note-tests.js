@@ -25,7 +25,7 @@ function listTests() {
 
 };
 
-function viewTests() {
+function listViewTests() {
 
   let list = new List();
   list.create('first note');
@@ -67,9 +67,20 @@ function controllerTests() {
 
 }
 
+function singleViewTests() {
+
+  (function(testName) {
+    note = new Note('abc');
+    singleNoteView = new SingleNoteView(note);
+
+    assert.isTruthy(singleNoteView.showNote(), 'abc', testName)
+  })('instantiates with note param')
+}
+
 noteTests();
 listTests();
-viewTests();
+listViewTests();
 controllerTests();
+singleViewTests();
 
 assert.showLog();
