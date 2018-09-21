@@ -27,16 +27,24 @@ function listTests() {
 
 function listViewTests() {
 
-  let list = new List();
-  list.create('first note');
-  list.create('second note');
-  let listView = new ListView(list);
-  let htmlString =  '<ul><li>first note</li><li>second note</li></ul>';
-
   (function(testName) {
+    let list = new List();
+    let listView = new ListView(list);
+    let htmlString =  '<ul><li>first note</li><li>second note</li></ul>';
+    list.create('first note');
+    list.create('second note');
+
     assert.isEqual(listView.htmlList(), htmlString, testName)
   })('creates view for list');
 
+  (function(testName) {
+    var list = new List();
+    var listViewTwo = new ListView(list);
+    list.create('abcdefghijklmnopqrstuvwxyz')
+    var shortenedString = '<ul><li>abcdefghijklmnopqrst</li></ul>'
+
+    assert.isEqual(listViewTwo.htmlList(), shortenedString, testName)
+  })('shows 20 char preview of note')
 };
 
 function controllerTests() {

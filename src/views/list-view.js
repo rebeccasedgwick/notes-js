@@ -6,7 +6,7 @@
   ListView.prototype.htmlList = function() {
     var html = ''
     this.list.all().forEach(function (n) {
-      html += `<li>${n.getText()}</li>`
+      html += `<li>${n.getText().slice(0, 20)}</li>`
     })
     return `<ul>${html}</ul>`
   }
