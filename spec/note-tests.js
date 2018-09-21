@@ -68,13 +68,16 @@ function controllerTests() {
 }
 
 function singleViewTests() {
+  var note = new Note('abc');
+  var singleNoteView = new SingleNoteView(note);
 
   (function(testName) {
-    note = new Note('abc');
-    singleNoteView = new SingleNoteView(note);
-
     assert.isTruthy(singleNoteView.showNote(), 'abc', testName)
-  })('instantiates with note param')
+  })('instantiates with note param');
+
+  (function(testName) {
+    assert.isEqual(singleNoteView.returnHTML(), '<div>abc</div>', testName)
+  })('returns HTML of single note');
 }
 
 noteTests();
